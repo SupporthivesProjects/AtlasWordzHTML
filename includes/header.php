@@ -37,8 +37,8 @@
         <div class="container p-mo">
          <div class="logo-mo-div">
             <a class="navbar-brand" href="#">
-              <img src="./img/m-logo.svg" alt="" class="img-fluid d-lg-none d-md-none d-block  " id="logo">
-              <img src="./img/brand.svg" alt="" class="img-fluid d-lg-block d-md-block d-none  ">
+              <img src="./img/m-logo.svg" alt="" class="img-fluid d-lg-none d-md-blocks d-block  " id="logo">
+              <img src="./img/brand.svg" alt="" class="img-fluid d-lg-block d-md-none d-none  ">
             </a>
             <div class="cart-mo-top-btn">
               <div class="cart-mo-top">
