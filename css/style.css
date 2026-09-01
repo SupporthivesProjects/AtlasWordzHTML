@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
 
 @font-face {
   font-family: 'Satoshi';
@@ -294,7 +295,122 @@ html,body{
   }
 }
 
+/* ------------------faqs-------------------------- */
+.faq-section{
+  height: 560px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.top-content h6 {
+    color: var(--brand-core-accent, #E8663B);
+    text-align: center;
+    font-family: 'Satoshi';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+    letter-spacing: 1.68px;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+}
+.top-content h2{
+  color: var(--brand-surface-cream, #F4EEE2);
+  text-align: center;
+  font-family: Fraunces;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 124%; /* 69.44px */
+  letter-spacing: -0.56px;
+  margin-bottom: 0px;
+}
+.top-content p{
+  color: var(--brand-tint-cream-80, rgba(244, 238, 226, 0.80));
+  text-align: center;
+  font-family: 'Satoshi';
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 30.4px */
+  margin-bottom: 0px;
+}
+.top-content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.accordion-button{
+    color: var(--brand-core-ink, #15332A);
+    font-family: Fraunces;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 132%;
+    letter-spacing: -0.09px;
+    padding: 28px 0px;
+}
+.accordion-item p{
+  color: var(--brand-text-body, #2E3A33);
+  font-family: 'Satoshi';
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 27.2px */
+  margin-bottom: 0px;
+}
+.accordion{
+    width: 1040px;
+    margin: auto;
+    max-width: 100%;
+}
+.accordion-item {
+    padding: 28px 0px;
+    border-left: 0px;
+    border-right: 0px;
+}
+.accordion-item:first-of-type>.accordion-header .accordion-button {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+.accordion-button:not(.collapsed) {
+    background-color: transparent;
+    box-shadow: none;
+    margin-bottom: 16px;
+}
+.accordion-item:first-of-type {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+.accordion-item:last-of-type {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border: 0px;
+}
+.accordion-body, .accordion-button {
+    padding: 0px 0px;
+}
 
+.accordion-button::after {
+    flex-shrink: 0;
+    content: "";
+    background-image: url(../img/plus.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: none;
+}
+.accordion-button:not(.collapsed)::after {
+    background-image: url(../img/minus.svg);
+    transform: none;
+    height: 2px;
+}
+.accordion-item {
+    border: 0px;
+    border-top: 1px solid rgba(21, 51, 42, 0.16) !important;
+}
+.faqs-content{
+  padding: 80px 0px;
+}
 /* ---------------------footer--------------- */
 .footer{
   background: url(../img/footer-bg.png) no-repeat;
