@@ -1,0 +1,171 @@
+.desktop_none{
+    display: none !important;
+}
+.mobile_none{
+    display: block !important;
+}
+/* Dashboard Start */
+.dashboard_s1{
+    background-image: url(../img/dashboard_s1bg.png);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 200px 0px 138px 0px;
+    background-color: var(--brand-surface-shell, #F6F2EA);
+}
+.dashboard_c1{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+.dashboard_s1label{
+    color: var(--brand-core-accent, #E8663B);
+    text-align: center;
+    font-family: Satoshi;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+    letter-spacing: 1.68px;
+    text-transform: uppercase;
+    margin: 0px;
+}
+.dashboard_s1title{
+    color: var(--brand-surface-cream, #F4EEE2);
+    text-align: center;
+    font-family: Fraunces;
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 124%;
+    letter-spacing: -0.56px;
+    margin: 0px;
+}
+.dashboard_signout{
+    color: var(--brand-tint-cream-80, rgba(244, 238, 226, 0.80));
+    text-align: center;
+    font-family: Satoshi;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+    margin: 0px;
+}
+.dashboard_s2{
+    padding: 48px 0px 104px 0px;
+    background-color: var(--brand-surface-shell, #F6F2EA);
+}
+.dashboard_c2{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.dashboard_s2top{
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+}
+.dashboard_s2btnmain{
+    flex: 1;
+}
+.dashboard_s2btn{
+    width: 100%;
+    display: flex;
+    padding: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    flex: 1 0 0;
+    border-radius: 12px;
+    background: #FDFBF6 !important;
+    border: 2px solid #FDFBF6 !important;
+}
+.dashboard_s2btn.active, .dashboard_s2btn:hover{
+    border: 2px solid #E8663B  !important;
+}
+.tab_btntitle{
+    color: var(--brand-core-ink, #15332A);
+    font-family: Fraunces;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: -0.12px;
+    margin: 0px;
+}
+.tab_btnsubtitle{
+    color: var(--brand-text-muted, #5C6E67);
+    font-family: Satoshi;
+    font-size: 14px;
+    font-style: normal;
+    text-align: start;
+    font-weight: 400;
+    line-height: 155%;
+    margin: 0px;
+}
+.dashboard_s2bottom{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+#pills-tab .nav-item::before,
+#pills-tab .nav-item::after,
+#pills-tab .nav-link::before,
+#pills-tab .nav-link::after {
+    display: none !important;
+}
+/* Dashboard End */
+
+
+
+
+/* *************** */
+/* Responsive Css */
+/* ************* */
+@media screen and (max-width: 700px) {
+    .desktop_none{
+        display: block !important;
+    }
+    .mobile_none{
+        display: none !important;
+    }
+    /* Dashboard Start */
+    /* Dashboard End */
+}
+
+@media screen and (min-device-width: 700px) and (max-device-width: 799px) {}
+
+@media screen and (min-device-width: 800px) and (max-device-width: 899px) {}
+
+@media screen and (min-device-width: 900px) and (max-device-width: 999px) {}
+
+@media screen and (min-device-width: 1000px) and (max-device-width: 1099px) {}
+
+@media screen and (min-device-width: 1100px) and (max-device-width: 1199px) {}
+
+@media screen and (min-device-width: 1200px) and (max-device-width: 1299px) {}
+
+@media screen and (min-device-width: 1300px) and (max-device-width: 1399px) {}
+
+@media screen and (min-device-width: 1400px) and (max-device-width: 1499px) {}
+
+@media screen and (min-device-width: 1500px) and (max-device-width: 1599px) {}
+
+@media screen and (min-device-width: 1600px) and (max-device-width: 1699px) {}
+
+@media screen and (min-device-width: 1700px) and (max-device-width: 1799px) {}
+
+@media screen and (min-device-width: 1800px) and (max-device-width: 1899px) {}
+
+@media screen and (min-device-width: 1900px) and (max-device-width: 1999px) {}
+
+@media screen and (min-device-width: 2000px) and (max-device-width: 2400px) {}
