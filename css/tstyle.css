@@ -221,6 +221,11 @@ margin-bottom: 0px;
     background: var(--brand-surface-shell, #F6F2EA);
     padding: 80px 24px;
 }
+.sd_2{
+     background-color: #FDFBF6;
+    padding: 104px 24px;
+}
+
 .inner_sd3 {
     display: flex;
     align-items: center;
@@ -471,12 +476,19 @@ align-self: stretch;
         letter-spacing: -0.28px;
     }
     .single_linet {
-        padding: 0px;
-        padding-bottom: 20px;
-        gap: 16px;
+        flex-direction: column;
+        padding: 20px 0px;
+        gap: 32px;
+        align-items: flex-start;
     }
     .dif_pad_top {
         padding-top: 24px;
+        
+    }
+    .for_row_t {
+flex-direction: row!important;
+gap: 16px!important;
+padding-bottom: 0px;
     }
     .dif_pad_bottom {
         padding-bottom: 24px;
@@ -583,6 +595,9 @@ line-height: 155%; /* 21.7px */
         font-style: normal;
         font-weight: 400;
         line-height: 160%; /* 27.2px */
+    }
+    .sd_2 {
+        padding: 48px 24px 56px 24px;
     }
 }
 
