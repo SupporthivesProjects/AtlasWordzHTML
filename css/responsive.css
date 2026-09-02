@@ -361,7 +361,67 @@
         border-radius: 100%;
     }
 }
-
+@media only screen and (max-width: 600px) {
+    .top-content h2 {
+        color: var(--brand-surface-cream, #F4EEE2);
+        text-align: center;
+        font-family: Fraunces;
+        font-size: 34px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 124%;
+        letter-spacing: -0.56px;
+        margin-bottom: 0px;
+    }
+    .top-content p {
+        color: var(--brand-tint-cream-80, rgba(244, 238, 226, 0.80));
+        text-align: center;
+        font-family: 'Satoshi';
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 160%;
+        margin-bottom: 0px;
+    }
+    .faq-section {
+        height: 355px;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+    }
+    .faqs-content {
+        padding: 48px 24px 32px;
+    }
+    .faqs-content  .container{
+        padding: 0px 0px;
+    }
+    .accordion-button:not(.collapsed)::after {
+        background-image: url(../img/minus.svg);
+        transform: none;
+        height: 2px;
+        width: 20px;
+        position: absolute;
+        right: 0px;
+    }
+    .accordion-button::after {
+        flex-shrink: 0;
+        content: "";
+        background-image: url(../img/plus.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: none;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: 0px;
+    }
+    .accordion-button {
+        padding: 0px 32px 0px 0px !important;
+    }
+    .accordion-item:last-of-type {
+        padding-bottom: 0px;
+    }
+}
 @media only screen and (max-width: 600px) {
     .footer {
         background: url(../img/footer-background-mo.png) no-repeat;

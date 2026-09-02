@@ -1,6 +1,7 @@
 <?php include 'includes/header.php'; ?>
 <section class="faq-section">
     <img src="./img/faqs-hero.png" class="img-fluid d-lg-block d-md-block d-none bg-image">
+    <img src="./img/faqs-hero-mo.png" class="img-fluid d-lg-none d-md-none d-block bg-image">
     <div class="container">
         <div class="col">
             <div class="top-content">

@@ -67,7 +67,7 @@
                                     <a href="#">Privacy Policy</a>
                                 </li>
                                 <li>
-                                    <a href="#">FAQs</a>
+                                    <a href="faqs.php">FAQs</a>
                                 </li>
                             </ul>
                         </div>
