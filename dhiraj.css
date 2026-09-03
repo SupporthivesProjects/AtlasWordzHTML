@@ -1511,6 +1511,8 @@
     flex-direction: column;
 
     gap: 6px;
+
+    flex: 1;
 }
 
 .cart-item-card__label {

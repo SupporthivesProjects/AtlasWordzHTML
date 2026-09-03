@@ -82,6 +82,9 @@
         gap: 20px;
     }
 
+    .translation-quantity{
+        width: 100%;
+    }
 
     .qunatity_div {
         display: flex;
@@ -961,18 +964,122 @@ font-size: 18px;
 
 
 
+
+
+
+
+
+
+
+/* PAYMENY SUCCES */
+
+
+.checkout-success{
+    padding: 114px 0px 56px;
+}
+
+.checkout-success__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 327px;
+}
+
+.checkout-success__card{
+    display: flex;
+padding: 40px 24px;
+flex-direction: column;
+align-items: center;
+align-self: stretch;
+}
+
+
+.checkout-success__title{
+    color: var(--brand-core-ink, #15332A);
+text-align: center;
+font-family: "Fraunces";
+font-size: 28px;
+font-style: normal;
+font-weight: 600;
+line-height: 128%; /* 35.84px */
+letter-spacing: -0.28px;
+}
+
+
+.checkout-success__actions {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 40px;
+    max-width: 265px;
+}
+
+.checkout-success__button--primary{
+    width: 100%;
+    justify-content: space-between;
+}
+
+.checkout-success__button--secondary{
+    width: 100%;
+    justify-content: space-between;
+}
+
+.checkout-success__button--secondary:hover {
+    background: var(--brand-core-ink, #15332A);
+    border-color: var(--brand-core-ink, #15332A);
+    color: #FFFFFF;
+        padding: 18px 24px 18px 20px;
+}
+
+
+
+
+
+
+
+
 }
 
 @media only screen and (min-device-width: 950px) and (max-device-width: 998px) {}
 
 
-@media only screen and (min-device-width: 1000px) and (max-device-width: 1199px) {}
+@media only screen and (min-device-width: 1000px) and (max-device-width: 1199px) {
+        .order-summary__actions {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        align-self: stretch;
+        margin-top: 20px;
+    }
+}
 
 
 
-@media only screen and (min-device-width: 1200px) and (max-device-width: 1348px) {}
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1348px) {
+        .order-summary__actions {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        align-self: stretch;
+        margin-top: 20px;
+    }
+}
 
-@media only screen and (min-device-width: 1349px) and (max-device-width: 1439px) {}
+@media only screen and (min-device-width: 1349px) and (max-device-width: 1439px) {
+        .order-summary__actions {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        align-self: stretch;
+        margin-top: 20px;
+    }
+}
 
 @media only screen and (min-device-width: 1440px) and (max-device-width: 1499px) {
 
