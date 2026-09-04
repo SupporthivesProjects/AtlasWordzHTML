@@ -175,6 +175,11 @@
                             <a class="dash_downloadbtn">Download</a>
                         </div>
                     </div>
+                    <div class="dash_notransbar">
+                        <h4 class="dash_tabcontent2title">Nothing to download yet.</h4>
+                        <h4 class="dash_tabcontent2subtitle">Finished translations land here the moment a job is delivered. </h4>
+                        <button type="button" class="btn dashboard_formbtn">Start translating<img src="./img/dash_btnarrow.svg"></button>
+                    </div>
                 </div>
             </div>
             <div class="tab-pane fade dash_tabcontent3" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
