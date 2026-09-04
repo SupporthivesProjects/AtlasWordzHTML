@@ -1,0 +1,364 @@
+/* =============================================================================
+   AtlasWordz interaction kit
+   atlas-effects.css
+
+   Styles for three effects:
+     1. Cursor trail        (canvas, created by JS, no markup needed)
+     2. Coordinate pill     (element, created by JS, no markup needed)
+     3. Plotted containers  (outline draws in, then contents appear)
+
+   Pair with atlas-effects.js. Nothing here depends on the AtlasWordz page
+   styles, so this file can drop into any build.
+
+   Theming: override the custom properties below. Everything else is structural
+   and should not need touching.
+   ============================================================================= */
+
+:root{
+  /* --- plotted container outline --- */
+  --atlas-plate-stroke:        rgba(21, 51, 42, .42);
+  --atlas-plate-width:         1.5px;
+  --atlas-plate-dash:          5 7;      /* dash / gap of the finished outline */
+  --atlas-plate-rest-opacity:  0;        /* outline fades away once contents show */
+
+  /* on dark grounds (JS adds .atlas-dark-ground to matching sections) */
+  --atlas-plate-stroke-dark:   rgba(244, 238, 226, .4);
+
+  /* --- coordinate pill --- */
+  --atlas-pill-bg:             rgba(253, 251, 246, .93);
+  --atlas-pill-border:         rgba(21, 51, 42, .16);
+  --atlas-pill-text:           #15332A;
+  --atlas-pill-accent:         #E8663B;
+  --atlas-pill-shadow:         0 8px 20px rgba(21, 51, 42, .10);
+  --atlas-pill-bg-dark:        rgba(21, 51, 42, .88);
+  --atlas-pill-border-dark:    rgba(244, 238, 226, .28);
+  --atlas-pill-text-dark:      #F4EEE2;
+
+  /* --- timing ---
+     If you change --atlas-draw-duration, change `fillDelay` in the JS options
+     to match, or the contents will appear before the outline has closed. */
+  --atlas-draw-duration:       .8s;
+  --atlas-draw-delay:          .16s;
+  --atlas-ease-plot:           cubic-bezier(.4, 0, .2, 1);
+  --atlas-ease-out:            cubic-bezier(.22, 1, .36, 1);
+
+  /* --- layering ---
+     Keep the trail below any fixed header. The AtlasWordz nav sits at 100. */
+  --atlas-trail-z:             90;
+  --atlas-pill-z:              95;
+}
+
+/* -----------------------------------------------------------------------------
+   1. Cursor trail
+   The canvas is fixed to the viewport, but the points are stored in page
+   coordinates, so the drawn line stays pinned to the content while scrolling.
+   -------------------------------------------------------------------------- */
+.atlas-trail{
+  position: fixed;
+  inset: 0;
+  z-index: var(--atlas-trail-z);
+  pointer-events: none;
+}
+
+/* -----------------------------------------------------------------------------
+   2. Coordinate pill
+   -------------------------------------------------------------------------- */
+.atlas-coords{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--atlas-pill-z);
+  pointer-events: none;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 13px;
+  border-radius: 999px;
+
+  background: var(--atlas-pill-bg);
+  border: 1px solid var(--atlas-pill-border);
+  box-shadow: var(--atlas-pill-shadow);
+  color: var(--atlas-pill-text);
+
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: .07em;
+  font-variant-numeric: tabular-nums;   /* stops the digits jittering */
+  white-space: nowrap;
+
+  opacity: 0;
+  transition: opacity .28s ease,
+              background .35s ease,
+              border-color .35s ease,
+              color .35s ease;
+  will-change: transform;
+}
+.atlas-coords.is-visible{ opacity: 1; }
+.atlas-coords.is-dark{
+  background: var(--atlas-pill-bg-dark);
+  border-color: var(--atlas-pill-border-dark);
+  color: var(--atlas-pill-text-dark);
+}
+.atlas-coords__dot{
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--atlas-pill-accent);
+  flex: 0 0 auto;
+}
+.atlas-coords__sep{ opacity: .34; }
+
+/* -----------------------------------------------------------------------------
+   3. Plotted containers
+
+   Markup contract (see README):
+     <div class="card" data-frame data-radius="8" data-frame-fit="tight">…</div>
+
+   The outline SVGs do NOT live inside the container. They sit in a page-level
+   overlay (.atlas-frame-layer) positioned over each container in document
+   coordinates, kept in sync by ResizeObserver. Two reasons:
+     - a container with overflow:hidden would clip an outline drawn outside
+       its own box (the panels did exactly this)
+     - injecting positioned children into arbitrary containers fights their
+       own layout; the overlay never touches it
+   Stage classes (.is-plotting / .is-filled) go on the container AND its svg.
+   -------------------------------------------------------------------------- */
+.atlas-frame-layer{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  z-index: 40;               /* above section art, below the fixed nav */
+  pointer-events: none;
+}
+
+.atlas-frame{
+  position: absolute;
+  overflow: visible;
+  opacity: 1;
+  transition: opacity .7s ease;
+}
+
+/* The visible outline. Its dash pattern must stay fixed, so the reveal is done
+   with a mask rather than by animating this element's own dash offset. */
+.atlas-frame__plate{
+  fill: none;
+  stroke: var(--atlas-plate-stroke);
+  stroke-width: var(--atlas-plate-width);
+  stroke-dasharray: var(--atlas-plate-dash);
+}
+
+/* The mask stroke: one dash spanning the whole perimeter (pathLength="1"),
+   unrolled from 1 to 0 so the outline is exposed progressively. */
+.atlas-frame__reveal{
+  fill: none;
+  stroke: #fff;
+  stroke-width: 14;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+/* the outline draws itself, from the top left, clockwise */
+.atlas-frame.is-plotting .atlas-frame__reveal{
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset var(--atlas-draw-duration) var(--atlas-ease-plot) var(--atlas-draw-delay);
+}
+
+/* stage 3 -- outline recedes, contents appear (JS sets the per-child delay) */
+.atlas-frame.is-filled{
+  opacity: var(--atlas-plate-rest-opacity);
+  transition: opacity 1s ease .5s;   /* linger a beat, then fade away */
+}
+
+/* Children are only hidden once the JS has run, so the content stays visible
+   if the script fails to load or is blocked. */
+.atlas-ready .atlas-fw > *{
+  opacity: 0;
+  transform: translateY(9px);
+}
+.atlas-ready .atlas-fw.is-filled > *{
+  opacity: 1;
+  transform: none;
+  transition: opacity .55s var(--atlas-ease-out),
+              transform .55s var(--atlas-ease-out);
+}
+
+/* dark grounds: JS mirrors the container's ground onto the svg */
+.atlas-frame--dark .atlas-frame__plate{ stroke: var(--atlas-plate-stroke-dark); }
+
+/* -----------------------------------------------------------------------------
+   Simple reveal, for blocks that should fade up without an outline.
+   Add data-reveal to any element.
+   -------------------------------------------------------------------------- */
+.atlas-ready [data-reveal]{
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .6s var(--atlas-ease-out),
+              transform .6s var(--atlas-ease-out);
+}
+.atlas-ready [data-reveal].is-visible{
+  opacity: 1;
+  transform: none;
+}
+
+/* -----------------------------------------------------------------------------
+   4. Preloader
+   A survey-chart moment before the page: dashed ring draws, compass needle
+   sweeps and settles north, coordinates tick beneath the wordmark. Created by
+   JS when the preloader option is on; no markup needed.
+   -------------------------------------------------------------------------- */
+:root{
+  --atlas-pre-bg:       #F4EEE2;
+  --atlas-pre-ink:      #15332A;
+  --atlas-pre-accent:   #E8663B;
+  --atlas-pre-muted:    rgba(21, 51, 42, .45);
+  --atlas-pre-z:        999;
+}
+
+.atlas-preloader{
+  position: fixed;
+  inset: 0;
+  z-index: var(--atlas-pre-z);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  background: var(--atlas-pre-bg);
+  transition: transform .7s cubic-bezier(.65, 0, .35, 1);
+  will-change: transform;
+}
+.atlas-preloader.is-done{ transform: translateY(-100%); }
+.atlas-preloader > *{ transition: opacity .3s ease; }
+.atlas-preloader.is-done > *{ opacity: 0; }
+
+/* compass */
+.atlas-preloader__compass{ width: 120px; height: 120px; }
+
+/* the ring plots itself: pathLength 1, unrolled once on entry */
+.atlas-preloader__ring{
+  fill: none;
+  stroke: var(--atlas-pre-ink);
+  stroke-width: 1.5;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transform: rotate(-90deg);          /* start the draw at due north */
+  transform-origin: 50% 50%;
+  animation: atlas-pre-ring .9s cubic-bezier(.4, 0, .2, 1) .15s forwards;
+}
+@keyframes atlas-pre-ring{ to{ stroke-dashoffset: 0; } }
+
+.atlas-preloader__ticks{
+  stroke: var(--atlas-pre-muted);
+  stroke-width: 1;
+}
+.atlas-preloader__letter{
+  fill: var(--atlas-pre-muted);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 11px;
+  text-anchor: middle;
+}
+.atlas-preloader__letter--n{ fill: var(--atlas-pre-ink); }
+
+/* the needle hunts, overshoots, settles north */
+.atlas-preloader__needle{
+  transform-origin: 60px 60px;
+  animation: atlas-pre-needle 2.1s cubic-bezier(.34, 1.3, .45, 1) .35s infinite;
+}
+@keyframes atlas-pre-needle{
+  0%  { transform: rotate(-140deg); }
+  38% { transform: rotate(52deg); }
+  62% { transform: rotate(-20deg); }
+  80% { transform: rotate(8deg); }
+  92% { transform: rotate(0deg); }
+  100%{ transform: rotate(-140deg); }
+}
+
+/* wordmark */
+.atlas-preloader__mark{
+  font-family: 'Fraunces', Georgia, serif;
+  font-variation-settings: "SOFT" 0, "WONK" 1;
+  font-weight: 600;
+  font-size: 27px;
+  letter-spacing: -.01em;
+  color: var(--atlas-pre-ink);
+}
+.atlas-preloader__mark b{
+  font-weight: 600;
+  color: var(--atlas-pre-accent);
+}
+
+/* ticking coordinates, same voice as the cursor pill */
+.atlas-preloader__coords{
+  font-size: 12px;
+  letter-spacing: .07em;
+  font-variant-numeric: tabular-nums;
+  color: var(--atlas-pre-muted);
+}
+
+/* keep the page still while the chart is up */
+html.atlas-preloading{ overflow: hidden; }
+
+/* -----------------------------------------------------------------------------
+   5. Country stamps
+   A click anywhere on open ground presses a passport-style entry stamp onto
+   the page at the click point. Stamps live in document coordinates, so they
+   scroll with the content, and dissipate after a few seconds.
+   -------------------------------------------------------------------------- */
+.atlas-stamp-layer{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  z-index: 60;               /* above the frame layer, below the fixed nav */
+  pointer-events: none;
+}
+
+.atlas-stamp{
+  position: absolute;
+  width: 88px;
+  height: 88px;
+  margin: -44px 0 0 -44px;   /* centre on the click point */
+  opacity: 0;
+  animation: atlas-stamp-in .45s cubic-bezier(.2, 1.4, .3, 1) forwards;
+  will-change: transform, opacity;
+}
+@keyframes atlas-stamp-in{
+  0%  { opacity: 0; transform: scale(1.55); }
+  55% { opacity: .95; transform: scale(.93); }
+  75% { transform: scale(1.03); }
+  100%{ opacity: .9; transform: scale(1); }
+}
+/* drying ink: the impression thins quickly, then the residue lingers and
+   spreads a little before it disappears */
+.atlas-stamp.is-fading{
+  animation: atlas-stamp-out 1.1s ease-out forwards;
+}
+@keyframes atlas-stamp-out{
+  0%  { opacity: .9;  filter: blur(0); }
+  30% { opacity: .5;  filter: blur(.2px); }
+  70% { opacity: .22; filter: blur(.6px); }
+  100%{ opacity: 0;   filter: blur(1.1px); }
+}
+
+/* -----------------------------------------------------------------------------
+   Reduced motion: no trail, no pill, no drawing, no preloader. Everything is
+   simply present. The JS makes the same checks, so this is belt and braces.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce){
+  .atlas-trail,
+  .atlas-coords,
+  .atlas-preloader{ display: none; }
+
+  .atlas-frame{ display: none; }
+
+  .atlas-ready .atlas-fw > *:not(.atlas-frame),
+  .atlas-ready [data-reveal]{
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
