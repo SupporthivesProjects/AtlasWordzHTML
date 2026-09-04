@@ -4,30 +4,30 @@
     <div class="trans1-inner container">
         <div class="trans-s1-text">
             <p class="t-gold-text">
-                Certified translation
+                Standard translation
             </p>
             <h1 class="ts1-bold">
-                Accepted <br>
-                where it counts.
+                For the documents <br>
+                nobody stamps.
             </h1>
             <p class="ts1-norm">
-                A translation supplied with a signed statement of accuracy, for documents that an official will check. Visa applications, degrees and transcripts, contracts and civil records. Priced per page, reviewed before it is certified, and returned in the original layout.
+                Translation for everything a business writes, priced per word. Reports, marketing, websites, internal documents and contracts that do not need certifying. Reviewed the same way, and returned in the original layout.
             </p>
         </div>
         <div class="trans-s1-pbox">
             <div class="tran-box1">
                 <h1>
-                    $32
+                    $0.13
                 </h1>
                 <p class="tb-text">
-                    per page, 250 words or fewer
+                    per word, quoted from the actual count
                 </p>
             </div>
             <div class="trans-box2">
                 <div class="trans-box2-line">
                     <img src="img/tick.png" alt="">
                     <p class="tb-text">
-                        Signed certificate of accuracy
+                        No certificate needed
                     </p>
                 </div>
                 <div class="trans-box2-line">
@@ -64,11 +64,11 @@
 <section class="translation-sec2">
     <div class="trans-s2-inner container">
         <p class="ts2-l">
-            What the certificate includes
+            What every job includes
         </p>
         <div class="ts2-r">
             <p class="ts2-l">
-                Signed statement of accuracy
+                Second-pass review
             </p>
             <p class="ts2-l">
                 Original formatting kept
@@ -85,11 +85,11 @@
         <div class="ts3-top">
             <div class="ts3-top-left">
                 <p class="t-gold-text">
-                    Certified translation
+                    Where it is used
                 </p>
                 <h1>
                     The documents <br>
-                    we are asked to certify.
+we translate most.
                 </h1>
             </div>
             <div class="ts3-top-right">
@@ -105,68 +105,68 @@
         <div class="ts3-bottom">
             <div class="ts3-card">
                 <p class="t-gold-text">
-                    01 / Immigration
+                    01 / Marketing
                 </p>
                 <h1 class="ts3-cbold">
-                    Visa and immigration files
+                    Campaigns and websites
                 </h1>
                 <p class="ts3-cnorm">
-                    Applications to embassies, consulates and the Home Office. Birth, marriage and identity documents, translated and certified.
+                    Landing pages, adverts and product copy, rewritten so they read naturally in the target market.
                 </p>
             </div>
             <div class="ts3-card">
                 <p class="t-gold-text">
-                    02 / Academic
+                    02 / Internal
                 </p>
                 <h1 class="ts3-cbold">
-                    Degrees and transcripts
+                    Internal documents
                 </h1>
                 <p class="ts3-cnorm">
-                    Academic records for admissions and credential evaluation, with the original layout kept intact.
+                    Policies, handbooks and training material for teams working across more than one language.
                 </p>
             </div>
             <div class="ts3-card">
                 <p class="t-gold-text">
-                    03 / Legal
+                    03 / Commercial
                 </p>
                 <h1 class="ts3-cbold">
-                    Legal documents
+                    Reports and proposals
                 </h1>
                 <p class="ts3-cnorm">
-                    Affidavits, witness statements and contracts, translated by someone who works in law.
+                    Board reports, tenders and proposals, kept accurate without losing the argument.
                 </p>
             </div>
             <div class="ts3-card">
                 <p class="t-gold-text">
-                    04 / Financial
+                    04 / Product
                 </p>
                 <h1 class="ts3-cbold">
-                    Financial records
+                    Manuals and specifications
                 </h1>
                 <p class="ts3-cnorm">
-                    Bank statements, tax filings and audit documents for account opening and reporting abroad.
+                    User guides, technical documentation and product information, handled inside the right subject area.
                 </p>
             </div>
             <div class="ts3-card">
                 <p class="t-gold-text">
-                    05 / Technical
+                    05 / Correspondence
                 </p>
                 <h1 class="ts3-cbold">
-                    Patents and filings
+                    Email and correspondence
                 </h1>
                 <p class="ts3-cnorm">
-                    Engineering specifications and patent applications, handled by translators who know the field.
+                    Day to day business writing, turned around quickly and worded consistently across a team.
                 </p>
             </div>
             <div class="ts3-card">
                 <p class="t-gold-text">
-                    06 / Corporate
+                    06 / Editorial
                 </p>
                 <h1 class="ts3-cbold">
-                    Company records
+                    Articles and long form
                 </h1>
                 <p class="ts3-cnorm">
-                    Articles of association, board minutes and certificates of incorporation for registration abroad.
+                    Blogs, whitepapers and editorial content, translated so the tone survives the trip.
                 </p>
             </div>
         </div>
@@ -174,17 +174,17 @@
 </section>
 
 <section class="translation-sec4">
-        <img src="img/cert-image.png" alt="" class="certified-image d-none d-md-block">
-        <img src="img/cert-mb.png" alt="" class="certified-image d-block d-md-none">
+        <img src="img/stand-image.png" alt="" class="certified-image d-none d-md-block">
+        <img src="img/stand-mb.png" alt="" class="certified-image d-block d-md-none">
         <div class="trans-sec4-text">
             <p class="t-gold-text">
-                What certified means
+                How we work
             </p>
             <h1>
-                “A certified translation is not a better translation. It is one that arrives with a certificate attached.”
+                “A good translation does not read like a translation. It reads like it was written there.”
             </h1>
             <p class="g-white">
-                Every certified job comes with a signed statement of accuracy, confirming the translation is complete and true to the original. That is the part an official checks.
+                The whole document is read before any of it is translated, so the voice holds from start to finish, then checked against the original before it is delivered.
             </p>
         </div>
 </section>
@@ -196,12 +196,13 @@
                 Before you order
             </p>
             <h1 class="ts1-bold">
-                Check the body will accept it.
+                Not sure which one you need?
             </h1>
         </div>
         <p class="ts1-norm">
-            Requirements vary by country and by department. Tell us where the document is going and <br class="d-none d-md-block">
-            we will tell you what they usually ask for. If we cannot meet it, we will say so before you pay.
+            ReIf an official body will read the document, you need certified translation. If nobody official<br class="d-none d-md-block"> 
+            will read it, standard does the same job for less. Tell us what it is for and we will point you to <br class="d-none d-md-block">
+            the right one.
         </p>
         <div class="trans-4-buttons">
             <a href="#" class="translate-button">
@@ -286,7 +287,7 @@
         </div>
         <div class="trans7-right">
             <h1 class="tr-h1">
-                Standard translation
+                Certified translation
             </h1>
             <div class="tran-box1">
                 <h1>
@@ -300,7 +301,7 @@
                 <div class="trans-box2-line">
                     <img src="img/tick.png" alt="">
                     <p class="tb-text">
-                        Translated into your target language
+                        Signed certificate of accuracy
                     </p>
                 </div>
                 <div class="trans-box2-line">
