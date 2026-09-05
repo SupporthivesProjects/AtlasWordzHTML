@@ -362,6 +362,26 @@
     }
 }
 @media only screen and (max-width: 600px) {
+    .about-banner {
+        background: url(../img/about-hero.png) no-repeat;
+        background-position: center center;
+        background-size: cover;
+        height: fit-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #F6EFE7;
+        padding-bottom: 0px;
+        padding-top: 6rem;
+    }
+    .about-banner-img{
+        text-align: center;
+    }
+    .about-banner-img  img{
+        height: 317px;
+        width: 353px;
+        margin: auto;
+    }
     .top-content h2 {
         color: var(--brand-surface-cream, #F4EEE2);
         text-align: center;
@@ -392,6 +412,12 @@
     .faqs-content {
         padding: 48px 24px 32px;
     }
+    .about-content .btn {
+        float: none;
+        margin: unset;
+        width: 100%;
+        height: 60px;
+    }
     .faqs-content  .container{
         padding: 0px 0px;
     }
@@ -421,6 +447,266 @@
     .accordion-item:last-of-type {
         padding-bottom: 0px;
     }
+}
+@media only screen and (max-width: 600px) {
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 640px;
+        max-width: 100%;
+    }
+    .about-content h2 {
+        color: var(--brand-core-ink, #15332A);
+        font-family: Fraunces;
+        font-size: 34px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 124%;
+        letter-spacing: -0.34px;
+        margin-bottom: 0px;
+    }
+    .about-content p {
+        color: var(--brand-text-body, #2E3A33);
+        font-family: Satoshi;
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 160%;
+        margin-bottom: 0px;
+    }
+    .about-content .btn-warp {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-direction: column;
+    }
+    .about-content .btn {
+        float: none;
+        margin: unset;
+        width: 100%;
+    }
+    .about-banner .container{
+        padding: 0px;
+    }
+    .about-banner .about-content{
+        padding: 32px 24px;
+    }
+    .we-content-main h3 {
+        color: var(--brand-core-ink, #15332A);
+        text-align: center;
+        font-family: Fraunces;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 128%;
+        letter-spacing: -0.28px;
+        margin-bottom: 12px;
+    }
+    .we-content-main p {
+        color: var(--brand-text-body, #2E3A33);
+        text-align: center;
+        font-family: Satoshi;
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 160%;
+    }
+    .what-we-needs {
+        background: var(--brand-surface-paper, #FDFBF6);
+        padding: 0px 0px 16px;
+    }
+
+    .what-we-needs .card {
+        border-radius: 16px;
+        border: 1px solid #E6DEC9;
+        background: var(--brand-surface-shell, #F6F2EA);
+        display: flex;
+        padding: 24px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 0px;
+        flex: 1 0 0;
+        /* width: 279px; */
+        margin-bottom: 16px;
+    }
+    .we-content-main {
+        width: 602px;
+        max-width: 100%;
+        margin: 0 auto;
+        margin-bottom: 32px;
+    }
+    .what-we-needs img {
+        margin-bottom: 32px;
+    }
+    .what-we-needs .container{
+        padding: 0px 24px;
+    }
+    .what-we-needs .card h4 {
+        color: var(--brand-core-ink, #15332A);
+        font-family: Fraunces;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 128%;
+        letter-spacing: -0.16px;
+        margin-bottom: 8px;
+    }
+    .about-banner-01 .container{
+        padding: 0px 24px;
+        overflow: hidden;
+    }
+    .about-banner-01{
+        padding: 40px 0px;
+    }
+    .about-banner-01 .col-12 {
+        flex: 0 0 auto;
+        width: 92%;
+        margin: auto;
+    }
+    .about-banner-01 .card {
+        padding: 24px 0px 24px 0px;
+        background: transparent;
+        border: 0px;
+    }
+    .about-banner-01 h6 {
+        color: var(--brand-surface-cream, #F4EEE2);
+        font-family: Fraunces;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 132%;
+        letter-spacing: -0.09px;
+        margin-bottom: 12px;
+    }
+    .about-banner-01 h5 {
+        color: var(--brand-surface-cream, #F4EEE2);
+        font-family: Fraunces;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 128%;
+        letter-spacing: -0.4px;
+            margin-bottom: 14px;
+    }
+    .col-border-1, .col-border-2, .col-border-5, .col-border-3, .col-border-4, .col-border-6 {
+        border-top: 1px solid var(--brand-tint-cream-10, rgba(244, 238, 226, 0.10));
+        border-left: 0px;
+        border-right: 0px;
+        border-bottom: 0px;
+    }
+    .col-border-6 {
+        border-bottom: 1px solid var(--brand-tint-cream-10, rgba(244, 238, 226, 0.10));
+    }
+    .about-div::after {
+       content: "";
+       display: none;
+    }
+    .about-document {
+        background: url(../img/how-it-works-mo.png) no-repeat;
+        background-size: cover;
+        background-position: center center;
+        padding: 40px 24px 8px;      
+    }
+    .about-document::after {
+        display: none;
+    }
+    .about-conten-dcoument h3 {
+        color: var(--brand-core-ink, #15332A);
+        text-align: center;
+        font-family: Fraunces;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 128%;
+        letter-spacing: -0.28px;
+        margin-bottom: 12px;
+    }
+    .about-document .container{
+        padding: 0px 0px;
+    }
+    .about-conten-dcoument p {
+        color: var(--brand-text-body, #2E3A33);
+        text-align: center;
+        font-family: Satoshi;
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 160%;
+        margin-bottom: 0px;
+    }
+    .about-conten-dcoument {
+        width: 646px;
+        max-width: 100%;
+        margin: auto;
+        margin-bottom: 32px;
+    }
+    .about-document .card-body {
+        flex: 1 1 auto;
+        padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+        color: var(--bs-card-color);
+        padding: 0px;
+    }
+    .about-document .card{
+        margin-bottom: 32px;
+    }
+    .about-from h2 {
+        color: var(--brand-core-ink, #15332A);
+        text-align: center;
+        font-family: Fraunces;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 128%;
+        letter-spacing: -0.28px;
+        margin-bottom: 32px;
+    }
+    .col-labal-bg {
+        flex: 1 0 0;
+        display: flex;
+        padding: 12px 20px 14px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        align-self: stretch;
+        border-radius: var(--radius-s, 8px);
+        background: var(--brand-surface-cream, #F4EEE2);
+        margin-bottom: 20px;
+    }
+    .about-from{
+        padding: 40px 0px 0px;
+    }
+    .about-from-box{
+        padding: 0px 24px;
+    }
+    .about-from .container{
+        padding: 0px 0px;
+    }
+    .closing-img {
+        margin-top: 40px;
+    }
+    .about-from-box .btn-orange {
+        border-radius: var(--radius-s, 8px);
+        background: var(--brand-core-accent, #E8663B);
+        display: flex;
+        padding: 18px 24px 18px 28px;
+        align-items: center;
+        gap: 10px;
+        color: var(--base-white, #FFF);
+        font-family: Satoshi;
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 140%;
+        break-after: avoid;
+        border: 0px;
+        width: 100%;
+        margin-top: 24px;
+        text-align: center;
+        justify-content: center;
+    }
+    
 }
 @media only screen and (max-width: 600px) {
     .footer {
